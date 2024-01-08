@@ -36,6 +36,7 @@ module "lambda" {
   region                       = var.region
   lambda_execution_role_arn    = module.iam.lambda_execution_role_arn
   dynamodb_stream_arn          = module.dynamodb.dynamodb_stream_arn
+  email                        = var.email
 }
 
 
