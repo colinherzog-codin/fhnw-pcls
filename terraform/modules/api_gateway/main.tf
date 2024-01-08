@@ -1,12 +1,10 @@
-# Main configuration file for the api_gateway module
 resource "aws_api_gateway_rest_api" "user_data_api" {
-  # Creating a REST API with a descriptive name and purpose
+  # Creating REST API
   name        = "UserDataAPI"
   description = "API for handling user data with token authentication"
 }
 
 resource "aws_api_gateway_resource" "user_resource" {
-  # Defining a resource within the API, specifying the path part
   rest_api_id = aws_api_gateway_rest_api.user_data_api.id
   parent_id   = aws_api_gateway_rest_api.user_data_api.root_resource_id
   path_part   = "user"
@@ -39,5 +37,6 @@ resource "aws_api_gateway_deployment" "api_deployment" {
     aws_api_gateway_integration.lambda_integration
   ]
   rest_api_id = aws_api_gateway_rest_api.user_data_api.id
+  # Should use environment variables for stage name
   stage_name  = "prod"
 }

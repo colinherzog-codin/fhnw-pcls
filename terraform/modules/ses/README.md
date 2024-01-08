@@ -21,7 +21,7 @@ module "example" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_email_address"></a> [email\_address](#input\_email\_address) | Email address used for SES identity and notifications | `string` | n/a | yes |
+| <a name="input_email_address"></a> [email\_address](#input\_email\_address) | Email address used for SES vcard notificaiton | `string` | n/a | yes |
 ## Outputs
 
 | Name | Description |

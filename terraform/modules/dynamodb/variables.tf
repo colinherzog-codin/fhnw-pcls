@@ -4,7 +4,7 @@ variable "dynamodb_table_name" {
 }
 
 variable "environment" {
-  description = "Deployment environment (e.g., dev, staging, prod)"
+  description = "Deployment environment (staging, prod)"
   type        = string
 }
 
