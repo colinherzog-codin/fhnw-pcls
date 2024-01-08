@@ -1,4 +1,4 @@
-name: "Terraform Infrastructure Change Management Pipeline with GitHub Actions"
+name: "Terraform Infrastructure Change Management Pipeline"
 
 on:
   push:
@@ -16,8 +16,8 @@ env:
   TF_LOG: INFO
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  AWS_DEFAULT_REGION: 'us-east-1'
-  BUCKET_TF_STATE: 'pcls-terraform-state-bucket'
+  AWS_DEFAULT_REGION: ${{ secrets.REGION }}
+  BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE }}
 
 jobs:
   terraform:

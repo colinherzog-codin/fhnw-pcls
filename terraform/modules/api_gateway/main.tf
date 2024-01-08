@@ -13,10 +13,10 @@ resource "aws_api_gateway_method" "user_put_method" {
   rest_api_id   = aws_api_gateway_rest_api.user_data_api.id
   resource_id   = aws_api_gateway_resource.user_resource.id
   http_method   = "PUT"
-  authorization = "NONE"  // No authorization
+  authorization = "NONE"
 
   request_parameters = {
-    "method.request.header.Authorization" = false  // No authorization header
+    "method.request.header.Authorization" = false
   }
 }
 

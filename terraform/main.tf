@@ -55,7 +55,7 @@ module "s3" {
 
 module "ses" {
   source        = "./modules/ses"
-  email_address = "colin.herzog@codin.ch"
+  email_address = var.email
 }
 
 module "cloudwatch" {

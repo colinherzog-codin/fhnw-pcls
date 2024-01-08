@@ -7,7 +7,7 @@ resource "aws_lambda_function" "api_request_handler" {
 
   environment {
     variables = {
-      DYNAMODB_TABLE = var.dynamodb_table_name
+      VCARD_DYNAMODB_TABLE = var.dynamodb_table_name
       REGION         = var.region
     }
   }
@@ -22,8 +22,9 @@ resource "aws_lambda_function" "dynamodb_trigger_handler" {
 
   environment {
     variables = {
-      S3_BUCKET_NAME = var.s3_bucket_name
-      DYNAMODB_TABLE_NAME = var.dynamodb_table_name
+      VCF_BUCKET_NAME = var.s3_bucket_name
+      VCARD_DYNAMODB_TABLE = var.dynamodb_table_name
+      EMAIL = var.email
     }
   }
 }

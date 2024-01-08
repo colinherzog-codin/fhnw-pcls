@@ -10,7 +10,7 @@ def lambda_handler(event, context):
         payload = json.loads(event["body"])
         print("payload ->" + str(payload))
         dynamodb_response = dynamodb_client.put_item(
-            TableName=os.environ["DYNAMODB_TABLE"],
+            TableName=os.environ["VCARD_DYNAMODB_TABLE"],
             Item={
                 "id": {
                     "S": payload["id"]

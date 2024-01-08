@@ -3,8 +3,9 @@ import boto3
 
 dynamodb = boto3.resource('dynamodb')
 s3 = boto3.client('s3')
-table = dynamodb.Table(os.environ['DYNAMODB_TABLE_NAME'])
-bucket_name = os.environ['S3_BUCKET_NAME']
+table = dynamodb.Table(os.environ['VCARD_DYNAMODB_TABLE'])
+bucket_name = os.environ['VCF_BUCKET_NAME']
+email = os.environ['EMAIL']
 
 def lambda_handler(event, context):
     for record in event['Records']:
@@ -18,8 +19,8 @@ def lambda_handler(event, context):
 
 def send_email(s3_link):
     ses_client = boto3.client('ses')
-    SENDER = "Colin Herzog <colin.herzog@codin.ch>"
-    RECIPIENT = "colin.herzog@codin.ch"
+    SENDER = f"VCard-Producer <{email}>"
+    RECIPIENT = f"{email}"
     SUBJECT = "Your vCard File"
     BODY_TEXT = (f"Your vCard file is available at the following link: {s3_link}")
     CHARSET = "UTF-8"

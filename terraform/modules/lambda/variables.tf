@@ -27,3 +27,8 @@ variable "dynamodb_stream_arn" {
   type = string
   description = "The ARN of the dynamodb stream"
 }
+
+variable "email" {
+    description = "Email address to send vcards to"
+    type        = string
+}
